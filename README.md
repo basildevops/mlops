@@ -3,6 +3,7 @@
 ```
 git clone https://github.com/basildevops/mlops.git
 cd mlops
+sudo apt install python3.10-venv
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install numpy pandas matplotlib scikit-learn mlflow
