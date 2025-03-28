@@ -30,11 +30,13 @@ ls
 
 1. Install Docker using the instructions at https://docs.docker.com/engine/install/ubuntu/
 
-2. Add the current user to docker group (sudo adduser $USER docker && exit)
+2. Add the current user to docker group
 
-3. Build the Container Image. Replace RUN ID with your own.
+```sudo adduser $USER docker && exit```
 
-mlflow models build-docker -m runs:/1556717bcbab4300b40e328aef0c88ec/linear_regression_model -n linear_regression_model:latest 
+5. Build the Container Image. Replace RUN ID with your own.
+
+```mlflow models build-docker -m runs:/1556717bcbab4300b40e328aef0c88ec/linear_regression_model -n linear_regression_model:latest```
 
 # Detailed Break Down
 ---
