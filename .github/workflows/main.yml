@@ -9,6 +9,7 @@ on:
 jobs:
   mlflow-pipeline:
     runs-on: ubuntu-latest
+    environment: PROD
 
     env:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
