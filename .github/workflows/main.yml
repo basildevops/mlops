@@ -89,6 +89,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
+        source venv/bin/activate
         mlflow models build-docker -m runs://$RUN_ID/linear_regression_model -n $IMAGE_NAME
 
     - name: Push to Docker Hub
