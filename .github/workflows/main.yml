@@ -68,7 +68,16 @@ jobs:
 
     - name: Serve Model Locally
       run: |
-        nohup mlflow models serve -m runs://$RUN_ID/linear_regression_model -p 5000 --no-conda &
+        # Activate virtualenv
+        source venv/bin/activate
+
+        # Check if mlflow is available
+        which mlflow || { echo "MLflow is not installed or not in PATH" >&2; exit 1; }
+
+        # Serve the model in the background and log output
+        mlflow models serve -m runs:/$RUN_ID/linear_regression_model -p 5000 --no-conda > mlflow_server.log 2>&1 &
+
+        echo "MLflow model serving started on port 5000. Logs are in mlflow_server.log"
 
     - name: Wait for Model to be Ready
       run: sleep 10
