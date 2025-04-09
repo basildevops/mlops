@@ -36,7 +36,7 @@ jobs:
 
     - name: Install DVC and Pull Data from GCS
       run: |
-        pip install dvc[gcs]
+        pip install dvc[gcs] dvc_gs
         dvc remote add -d gcs-remote gs://mlops-data-tracking/linear-regression-model
         export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/gcp-key.json"
         dvc pull
