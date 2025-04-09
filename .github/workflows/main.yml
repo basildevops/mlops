@@ -77,7 +77,7 @@ jobs:
         # Serve the model in the background and log output
         mlflow models serve -m runs:/$RUN_ID/linear_regression_model -p 5000 --no-conda > mlflow_server.log 2>&1 &
 
-        echo "MLflow model serving started on port 5000. Logs are in mlflow_server.log"
+        echo "MLflow model serving started on port 5000. Logs are in mlflow_server.log. Thanks"
 
     - name: Wait for Model to be Ready
       run: sleep 10
