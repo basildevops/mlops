@@ -57,11 +57,13 @@ jobs:
         source venv/bin/activate
         python app/simple_ml_mlflow_csv.py
 
-    - name: Extract Run ID
+    - name: Extract latest Run ID from mlruns
       id: get_run_id
       run: |
-        RUN_ID=$(ls -td ./mlruns/0/*/ | head -1 | xargs -n 1 basename)
-        echo "Run ID: $RUN_ID"
+        # Find all run folders across all experiments and sort by modification time
+        RUN_ID=$(find ./mlruns/*/* -maxdepth 0 -type d -printf '%T@ %p\n' | sort -n | tail -1 | awk '{print $2}' | xargs -n 1 basename)
+        
+        echo "Latest Run ID: $RUN_ID"
         echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
 
     - name: Serve Model Locally
