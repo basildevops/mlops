@@ -12,8 +12,8 @@ def train_and_evaluate():
         "Size (sq ft)": [500, 1000, 1500, 2000, 2500],
         "Price (in Lakhs)": [25, 50, 75, 100, 125]
     }
-    df = pd.DataFrame(data)
 
+    df = pd.DataFrame(data)
     X = df[["Size (sq ft)"]]
     y = df["Price (in Lakhs)"]
 
@@ -21,12 +21,12 @@ def train_and_evaluate():
 
     model = LinearRegression()
     model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
 
+    y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
 
-    print(f"MSE: {mse:.2f}")
-    print(f"Coef: {model.coef_}")
-    print(f"Intercept: {model.intercept_}")
+    print(f"Mean Squared Error: {mse:.2f}")
+    print(f"Model Coefficients: {model.coef_}")
+    print(f"Model Intercept: {model.intercept_}")
 
-    joblib.dump(model, "model.pkl")  # save the model
+    joblib.dump(model, "model.pkl")
