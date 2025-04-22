@@ -1,16 +1,16 @@
 # pipeline.py
 
-from kfp.dsl import pipeline
 from kfp import compiler
-from kfp.components import load_component_from_file
+from kfp.dsl import pipeline
+from component import train_component  # directly import decorated function
 
 @pipeline(
     name="Simple Linear Regression Pipeline",
     description="Train a linear regression model using Kubeflow Pipelines."
 )
 def regression_pipeline():
-    train_op = load_component_from_file("train_component.yaml")()
-    
+    train_component()  # call the component directly
+
 if __name__ == "__main__":
     compiler.Compiler().compile(
         pipeline_func=regression_pipeline,
