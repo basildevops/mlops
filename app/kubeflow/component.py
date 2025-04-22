@@ -1,15 +1,11 @@
 # component.py
 
-from kfp.components import create_component_from_func
+from kfp.dsl import component
 import train_model
 
+@component(
+    base_image="python:3.9",
+    packages_to_install=["pandas", "matplotlib", "scikit-learn", "joblib"]
+)
 def train_component():
     train_model.train_and_evaluate()
-
-if __name__ == "__main__":
-    component = create_component_from_func(
-        train_component,
-        base_image="python:3.9",
-        packages_to_install=["pandas", "matplotlib", "scikit-learn", "joblib"]
-    )
-    component.save("train_component.yaml")
