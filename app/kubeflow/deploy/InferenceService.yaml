@@ -1,0 +1,14 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: price-calc-model
+  namespace: kubeflow
+spec:
+  predictor:
+    sklearn:
+      storageUri: "s3://my-price-calc-artifacts/model.pkl"
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+    serviceAccountName: kserve-minio-sa
