@@ -42,7 +42,7 @@ def train_component():
 
     # Upload to MinIO (S3)
     s3 = boto3.client('s3',
-                      endpoint_url='http://minio-service:9000',  # MinIO internal URL in Kubeflow
+                      endpoint_url='http://minio-service.default.svc.cluster.local:9000',  # MinIO internal URL in Kubeflow
                       aws_access_key_id='minio',
                       aws_secret_access_key='minio123',
                       config=Config(signature_version='s3v4'),
