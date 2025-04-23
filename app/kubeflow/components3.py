@@ -51,8 +51,6 @@ def train_component():
     bucket_name = 'my-price-calc-artifacts'
     object_name = 'model.pkl'
 
-    # Ensure bucket exists (optional)
-    s3.create_bucket(Bucket=bucket_name)
     # Upload
     s3.upload_file('model.pkl', bucket_name, object_name)
     print(f"Model uploaded to MinIO bucket '{bucket_name}' as '{object_name}'")
