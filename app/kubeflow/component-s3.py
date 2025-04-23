@@ -5,7 +5,7 @@ import train_model
 
 @component(
     base_image="python:3.9",
-    packages_to_install=["pandas", "matplotlib", "scikit-learn", "joblib"]
+    packages_to_install=["pandas", "matplotlib", "scikit-learn", "joblib", "boto3"]
 )
 def train_component():
     import pandas as pd
