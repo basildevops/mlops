@@ -2,7 +2,7 @@
 
 from kfp import compiler
 from kfp.dsl import pipeline
-from component-s3 import train_component  # directly import decorated function
+from components3 import train_component  # directly import decorated function
 
 @pipeline(
     name="Simple Linear Regression Pipeline",
