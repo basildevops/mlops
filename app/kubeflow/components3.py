@@ -49,7 +49,7 @@ def train_component():
                       region_name='us-east-1')
 
     bucket_name = 'my-price-calc-artifacts'
-    object_name = 'model.pkl'
+    object_name = 'price-calc-model/model.pkl'
 
     # Upload
     s3.upload_file('model.pkl', bucket_name, object_name)
