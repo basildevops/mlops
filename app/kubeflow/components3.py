@@ -38,7 +38,7 @@ def train_component():
     print(f"Model Intercept: {model.intercept_}")
 
     # Save model locally
-    joblib.dump(model, "model.pkl")
+    joblib.dump(model, "model.joblib")
 
     # Upload to MinIO (S3)
     s3 = boto3.client('s3',
@@ -49,7 +49,7 @@ def train_component():
                       region_name='us-east-1')
 
     bucket_name = 'my-price-calc-artifacts'
-    object_name = 'price-calc-model/model.pkl'
+    object_name = 'price-calc-model/model.joblib'
 
     # Upload
     s3.upload_file('model.pkl', bucket_name, object_name)
