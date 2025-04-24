@@ -52,5 +52,5 @@ def train_component():
     object_name = 'price-calc-model/model.joblib'
 
     # Upload
-    s3.upload_file('model.pkl', bucket_name, object_name)
+    s3.upload_file('model.joblib', bucket_name, object_name)
     print(f"Model uploaded to MinIO bucket '{bucket_name}' as '{object_name}'")
