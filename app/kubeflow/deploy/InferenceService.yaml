@@ -6,7 +6,7 @@ metadata:
 spec:
   predictor:
     sklearn:
-      storageUri: "s3://my-price-calc-artifacts/model.pkl"
+      storageUri: "s3://my-price-calc-artifacts/price-calc-model/model.pkl"
       resources:
         requests:
           cpu: 100m
